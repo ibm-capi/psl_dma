@@ -1006,17 +1006,29 @@ module afu (
 	always @ (posedge ha_pclock)
 		tx_buf_rd <= ha_rvalid & ha_rtag [8-Reorder_aw] & (~ha_rtag[0]);
 
-	assign	write_last	= (write_ack & tx_align_eop & ({8'h0,write_bytes} == tx_align_byte))
-						| (tx_buf_wr_double & tx_align_eop & (~|tx_align_byte));
+	assign	write_last	= (write_ack & tx_align_done & tx_align_eop & ({8'h0,write_bytes} == tx_align_byte))
+						| (tx_buf_wr_double & tx_align_done & tx_align_eop & (~|tx_align_byte));
+
+
+	reg					tx_buf_wr_reg;
+	reg		[0:5]		tx_buf_waddr_reg;
+	reg		[0:511]		tx_align_dat_reg;
+
+	always @ (posedge ha_pclock)
+	begin
+		tx_buf_wr_reg		<= tx_buf_wr;
+		tx_buf_waddr_reg	<= tx_buf_waddr;
+		tx_align_dat_reg	<= tx_align_dat;
+	end
 
 /////////////////////////  Block RAM  ///////////////////////
 
 	BRAM_WRAPPER # (6, 512) tx_buf
 	(
 		.clk(ha_pclock),
-		.wren_i(tx_buf_wr),
-		.waddr_i(tx_buf_waddr),
-		.wdin_i(tx_align_dat),
+		.wren_i(tx_buf_wr_reg),
+		.waddr_i(tx_buf_waddr_reg),
+		.wdin_i(tx_align_dat_reg),
 		.raddr_i(tx_buf_raddr),
 		.rdout_o(tx_buf_dout)
 	);

@@ -96,7 +96,7 @@ void verify_result (__u8 * source_buf, __u8 * result_buf)
 
 int main (int argc, char **argv)
 {
-	int i, opt;
+	int opt;
 	int ret;
 	__u8 * source_buf, * result_buf;
 	__u8 * source_buf_orig, * result_buf_orig;
@@ -129,6 +129,7 @@ int main (int argc, char **argv)
 	memset (source_buf_orig, 0, input_size+128);
 	memset (result_buf_orig, 0, input_size+128);
 
+	// Ramdonly simulate the non cache align address
 	source_buf = source_buf_orig + (rand()%16)*8;
 	result_buf = result_buf_orig + (rand()%16)*8;
 	gen_random_content (source_buf);
@@ -173,54 +174,6 @@ int main (int argc, char **argv)
 
 	printf ("\n\t#### Verifying the result...\n\n");
 	verify_result (source_buf, result_buf);
-
-	// If need more test, change the following loop
-	for (i = 1; i < 10; i ++) {
-
-		input_size = rand()%1024 + 1;
-		output_size = rand()%16 + input_size;
-		memset (source_buf_orig, 0, input_size+128);
-		memset (result_buf_orig, 0, input_size+128);
-
-		source_buf = source_buf_orig + (rand()%16)*8;
-		result_buf = result_buf_orig + (rand()%16)*8;
-		gen_random_content (source_buf);
-
-		free (capi_wed);
-		capi_wed = capi_malloc (CACHELINE_BYTES);
-		if (capi_wed == NULL) {
-			printf ("Can not allocate memory for DAM WED.\n");
-			return -1;
-		}
-
-		capi_wed->source_size = input_size;
-		capi_wed->result_size = output_size;
-		capi_wed->source = source_buf;
-		capi_wed->result = result_buf;
-
-
-		start_cnt = rte_rdtsc();
-		printf ("start job with input %d bytes", input_size);
-		ret = capi_do_job (capi_wed);
-		end_cnt = rte_rdtsc();
-
-		if (ret) {
-			printf ("Job in round %d can not be finished.\n", i);
-			capi_close ();
-			printf ("\t#### Close CAPI device Done.\n\n");
-
-			return -1;
-		}
-
-		printf ("\n\t#### Finish the computation round %d.\n", i);
-		printf ("%f ses. bw = %f MB/s\n\n", job_sec, bw);
-
-		printf ("\n\t#### Verifying the result...\n\n");
-		verify_result (source_buf, result_buf);
-
-		job_sec = ((double)((end_cnt-start_cnt)<<1))/1000000000.0;
-		bw = ((double)input_size)/job_sec/1024/1024;
-	}
 
 	capi_close ();
 	printf ("\t#### Close CAPI device Done.\n\n");
