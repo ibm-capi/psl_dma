@@ -19,7 +19,7 @@
 
 #include "libcxl.h"
 
-#define	VERSION 0x03
+#define	VERSION 0x11
 
 #define DEVICE "/dev/cxl/afu0.0d"
 #define CACHELINE_BYTES	128
