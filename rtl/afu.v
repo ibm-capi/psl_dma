@@ -899,7 +899,7 @@ module afu (
 
 
 	assign	reorder_buf_rd	= rx_data_ready & reorder_buf_head_val;
-	assign	read_route_fifo_rd = reorder_buf_rd & reorder_buf_raddr [Reorder_aw-1];;
+	assign	read_route_fifo_rd = reorder_buf_rd & reorder_buf_raddr [Reorder_aw-1];
 
 
 //////////////////////////////////////////////////////////////
