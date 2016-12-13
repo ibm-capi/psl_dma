@@ -1,0 +1,10 @@
+../../rtl/BRAM_WRAPPER.v
+../../rtl/endian_swap.v
+../../rtl/parity.v
+../../rtl/mmio.v
+../../rtl/SYNC_FIFO_WRAPPER.v
+../../rtl/rx_align.v
+../../rtl/loop_back.v
+../../rtl/tx_align.v
+../../rtl/afu.v
+../../pslse/afu_driver/verilog/top.v
