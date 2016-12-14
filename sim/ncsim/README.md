@@ -1,6 +1,6 @@
 # Simulation Scripts for Cadence IES (ncsim)
 
-Steps：
+Steps:
 * Set IES environment variables:
 
 ```Bash
@@ -34,8 +34,7 @@ If needed, double check `pslse/afu_driver/src/Makefile`, where `VPI_USER_H_DIR=$
 * In terminal window 1, Start simulator
 ```Bash
 cd sim/ncsim
-mkdir work #for the first time, if work directory doesn't exist
-source run_sim.tcl
+source ./run_sim.tcl
 run
 ```
 
