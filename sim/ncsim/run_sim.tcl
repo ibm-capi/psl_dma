@@ -1,5 +1,7 @@
 set NCSIM_PATH = `pwd`
-
+if (! -e ./work) then
+	mkdir work
+endif
 rm -fr ./work/*
 
 setenv PATH $NCSIM_PATH/../../pslse/afu_driver/src:$NCSIM_PATH/../../pslse/libcxl:$PATH
