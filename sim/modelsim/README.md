@@ -15,6 +15,7 @@ git clone https://github.com/ibm-capi/pslse
 
   "pslse" directory should be parallel to "rtl", "app" and "sim". 
 * Go to build pslse:
+
 Modify `pslse/afu_driver/src/Makefile`, to let `VPI_USER_H_DIR=<modelsim_install_path>/include`
 
 ```Bash
@@ -37,6 +38,8 @@ comp_afu_example               #in Modelsim GUI console
 sim                            #in Modelsim GUI console
 run -all                       #in Modelsim GUI console
 ```
+
+If you update afu_questa_start.tcl in the middle, use `rs` to re-source it in Modlesim GUI. 
 
 * In terminal window 2, Start pslse
 ```Bash
