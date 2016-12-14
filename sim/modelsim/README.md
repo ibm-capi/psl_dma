@@ -1,6 +1,6 @@
 # Simulation Scripts for Modelsim/Questasim
 
-Steps：
+Steps:
 * Set Modelsim environment variables:
 
 ```Bash
