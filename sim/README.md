@@ -1,5 +1,5 @@
 # Working with PSL simulation engine (pslse)
-Prepare a simulation environment with your AFU design has many benefits:
+Having a simulation environment has many benefits:
 
 1. You can start working without hardware (Power system and FPGA card)
 2. Get confidence before synthesis/place/route your AFU design. 
