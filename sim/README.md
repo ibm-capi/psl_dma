@@ -1,7 +1,7 @@
 # Working with PSL simulation engine (pslse)
 Having a simulation environment has many benefits:
 
-1. You can start working without hardware (Power system and FPGA card)
+1. You can start without Power system and FPGA card, you can work on a personal computer with simulator installed.
 2. Get confidence before synthesis/place/route your AFU design. 
 3. Debug problem with the help of full waveforms, breakpoints and so on.
 4. For software part, nothing need to be changed when moving from simulation to real hardware. 
