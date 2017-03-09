@@ -2,8 +2,8 @@
 A block DMA engine works with IBM CAPI interface.
 
 * rtl :
-	A folder with an example to use the DAM engine.
-    The loop_back module get data from DAM engine and loop-back the data to DAM engine.
+	A folder with an example to use the DMA engine.
+    The loop_back module get data from DMA engine and loop-back the data to DMA engine.
 
 * app :
 	A folder with APIs and also a testbench to use the block DMA engine.
