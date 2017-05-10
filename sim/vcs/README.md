@@ -21,6 +21,7 @@ git clone https://github.com/ibm-capi/pslse
 
 * Go to build pslse:
 Modify `pslse/afu_driver/src/Makefile`
+
 let `VPI_USER_H_DIR=${VCS_HOME}/include`
 
 ```Bash
@@ -47,6 +48,7 @@ end
 -P <Absolute_or_Relative_path_to>/pslse/afu_driver/verilog/top.tab
 ```
 Please ensure line1 and line3 are pointing to the correct path. 
+
 Use absolute path if pslse is placed at a common place. 
 
 
