@@ -20,7 +20,8 @@ git clone https://github.com/ibm-capi/pslse
 "pslse" directory should be parallel to "rtl", "app" and "sim".
 
 * Go to build pslse:
-Modify `pslse/afu_driver/src/Makefile`, let `VPI_USER_H_DIR=${VCS_HOME}/include`
+Modify `pslse/afu_driver/src/Makefile`
+let `VPI_USER_H_DIR=${VCS_HOME}/include`
 
 ```Bash
 cd pslse/libcxl
@@ -43,8 +44,11 @@ end
 ```Bash
 -CFLAGS '-I<Absolute_path_to>/pslse/common'
 -CFLAGS '-I$VCS_HOME/`vcs -platform`/lib'
--P ../../pslse/afu_driver/verilog/top.tab
+-P <Absolute_or_Relative_path_to>/pslse/afu_driver/verilog/top.tab
 ```
+Please ensure line1 and line3 are pointing to the correct path. 
+Use absolute path if pslse is placed at a common place. 
+
 
 * In terminal window 1, Start simulator
 ```Bash
@@ -65,6 +69,7 @@ cd app
 make
 ./tinytest #APP name and arguments
 ```
+If it cannot find libcxl.so, set $LD_LIBRARY_PATH to `<PSLSE PATH>/pslse/libcxl`
 
 * You can run APP in Window3 multiple times. When APP completes and you are not going to run it anymore, go to Window2 and Ctrl-C to terminate PSLSE. Then exit ncsim in Window 1.
 
