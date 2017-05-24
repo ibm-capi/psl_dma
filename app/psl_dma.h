@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef _ERASURECODE_H_
-#define _ERASURECODE_H_
+#ifndef _PSL_DMA_H_
+#define _PSL_DMA_H_
 
 #include "libcxl.h"
 
