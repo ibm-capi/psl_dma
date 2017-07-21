@@ -19,9 +19,11 @@ A block DMA engine works with IBM CAPI interface.
 * CAPI homepage: https://www-304.ibm.com/webapp/set2/sas/f/capi/home.html, go to Nallatech or Alphadata website (on the right bar `Purchase CAPI Development Kit`) to learn the information of FPGA cards, and CAPI user guide on Altera/Xilinx edition. 
 
 # Run Simulation (on x86 linux env)
-git clone https://github.com/ibm-capi/pslse
+`git clone https://github.com/ibm-capi/pslse`
+
 Read the REAME.md under "sim" directory. 
 
 # Run with CAPI-card (on Power8 linux env)
-git clone https://github.com/ibm-capi/libcxl
+`git clone https://github.com/ibm-capi/libcxl`
 make libcxl first. 
+Then make app. 
