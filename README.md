@@ -10,7 +10,7 @@ A block DMA engine works with IBM CAPI interface.
 
 
 * sim :
-        Example simulation scripts for Modelsim/VCS/NCSim
+    Example simulation scripts for Modelsim/VCS/NCSim
 
 # web links
 
@@ -21,7 +21,7 @@ A block DMA engine works with IBM CAPI interface.
 # Run Simulation (on x86 linux env)
 `git clone https://github.com/ibm-capi/pslse`
 
-Read the REAME.md under "sim" directory. 
+Read the README.md under "sim" directory. 
 
 # Run with CAPI-card (on Power8 linux env)
 `git clone https://github.com/ibm-capi/libcxl`
